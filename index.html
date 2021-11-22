@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>See Your Love Compatibility</title>
+</head>
+
+<body>
+    <h1>Matchmaker Javascript Edition</h1>
+    <p>Answer these questions with the drop-down menu choices and then press the calculate button to find your compatibility.</p>
+    <h2>Are you religious?</h2>
+    <select id="q1">
+        <option value="5">Strongly Agree</option>
+        <option value="4">Agree</option>
+        <option value="3">Neutral</option>
+        <option value="2">Disagree</option>
+        <option value="1">Strongly Disagree</option>
+    </select>
+    <h2>Do you like fruit?</h2>
+    <select id="q2">
+        <option value="5">Strongly Agree</option>
+        <option value="4">Agree</option>
+        <option value="3">Neutral</option>
+        <option value="2">Disagree</option>
+        <option value="1">Strongly Disagree</option>
+    </select>
+    <h2>Are you extroverted?</h2>
+    <select id="q3">
+        <option value="5">Strongly Agree</option>
+        <option value="4">Agree</option>
+        <option value="3">Neutral</option>
+        <option value="2">Disagree</option>
+        <option value="1">Strongly Disagree</option>
+    </select>
+    <h2>Do you have many hobbies?</h2>
+    <select id="q4">
+        <option value="5">Strongly Agree</option>
+        <option value="4">Agree</option>
+        <option value="3">Neutral</option>
+        <option value="2">Disagree</option>
+        <option value="1">Strongly Disagree</option>
+    </select>
+    <h2>Do you like video games?</h2>
+    <select id="q5">
+        <option value="5">Strongly Agree</option>
+        <option value="4">Agree</option>
+        <option value="3">Neutral</option>
+        <option value="2">Disagree</option>
+        <option value="1">Strongly Disagree</option>
+    </select>
+
+    <br>
+    <br>
+    <button type="button" onclick="start()">Calculate</button>
+    <p id="demo"></p>
+    <p id="rating"></p> 
+
+<script>
+function start() {
+    let a1 = Math.abs(document.getElementById('q1').value - 5)
+    a1 = a1 * 6
+    let a2 = Math.abs(document.getElementById('q2').value - 2)
+    a2 = a2 * 2
+    let a3 = Math.abs(document.getElementById('q3').value - 1)
+    a3 = a3 * 4
+    let a4 = Math.abs(document.getElementById('q4').value - 4)
+    a4 = a4 * 4
+    let a5 = Math.abs(document.getElementById('q5').value - 4)
+    a5 = a5 * 4
+    let sum = a1 + a2 + a3 + a4 + a5
+    let final = 100 - sum
+    document.getElementById("demo").innerHTML = "Your compatibility is " + final
+    let result
+    if (final >= 90){
+        result = "You are very compatible!"
+    } else if (final >=75 && final <=89){ 
+        result = "You are somewhat compatible."
+    } else if (final >=60 && final <=74){
+        result = "You are somewhat incompatible (but could be friends)."
+    } else if (final <=59){
+        result = "You are incompatible with each other."
+    }
+    document.getElementById("rating").innerHTML = result
+    }
+
+</script>
+
+</body>
+
+</html>
